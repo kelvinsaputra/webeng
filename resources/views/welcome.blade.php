@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Dashboard Template for Bootstrap</title>
+  <title>Tubes Web Engineering</title>
 
   <!-- Bootstrap core CSS -->
   <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -33,13 +33,13 @@
         <div class="sidebar-sticky">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link active" href="#">
                 <span data-feather="file"></span>
                 Customer List
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="#">
+              <a class="nav-link" href="#">
                 <span data-feather="home"></span>
                 Dashboard <span class="sr-only">(current)</span>
               </a>
@@ -113,12 +113,31 @@
               </a>
             </li>
           </ul>
+
+          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <span>Account</span>
+
+          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <span>Order</span>
+
+          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <span>Add-on</span>
+
+          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <span>Bills</span>
+
+          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <span>Transaction Details</span>
+
+          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <span>Others</span>
+
         </div>
       </nav>
 
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-          <h1 class="h2">Dashboard</h1>
+          <h1 class="h2">Fake CRM</h1>
           <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group mr-2">
               <button class="btn btn-sm btn-outline-secondary">Share</button>
@@ -131,7 +150,275 @@
           </div>
         </div>
 
-        <canvas class="my-4" id="myChart" width="900" height="380"></canvas>
+        <div class="row">
+          <div class="col-md-12">
+
+            <form method="POST" action="">
+              {{ csrf_field() }}
+
+              <h4>Customer Details</h4><br>
+
+              <!-- tolong kondisikan for id name -->
+              <div class="col-md-3" style="display: inline-block;">
+                <div class="form-group">
+                  <label for="name">Customer Segment:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="name">Customer Category:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="name">Resident Type:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="name">Date of Birth:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="name">Occupation:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="name">Modified Time:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="name">Shared Balance Group:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+              </div>
+
+              <div class="col-md-3" style="display: inline-block;">
+                <div class="form-group">
+                  <label for="name">Customer Account Number:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="name">Latitude:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="name">NPWP Number:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="name">Is Converted From Lead:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="name">Primary Mobile:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="name">Corporate Tax ID:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="name">Created Time:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+              </div>
+
+              <div class="col-md-3" style="display: inline-block;">
+                <!-- <div class="form-group">
+                  <label for="name">Name:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Email:</label>
+                  <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="password">Password:</label>
+                  <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="password_confirmation">Password Confirmation:</label>
+                  <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
+                </div> -->
+
+                <div class="form-group">
+                  <label for="name">Duckapil Status:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="name">Longitude:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="name">Customer Status:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="name">BSS Status:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="name">Customer Username:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="name">Customer Comment:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="name">Customer Note:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+              </div>
+
+              <!-- BUTTON SEBELAH SINIII-->
+              <div class="form-group float-right">
+                <Button type="Submit" class="btn btn-primary">Save</Button>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <button type="button" class="btn btn-secondary">Add</button>
+                  <button type="button" class="btn btn-secondary">Edit</button>
+                  <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  More
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                    <a class="dropdown-item" href="#">Check Ducapil</a>
+                    <a class="dropdown-item" href="#">Another dropdown</a>
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+              <h4>PIC Details</h4><br>
+
+              <div class="col-md-3" style="display: inline-block;">
+                <div class="form-group">
+                  <label for="name">First Name:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="name">Facebook Account Id:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="name">Customer ID:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="name">Preferred Language:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="name">Home Status:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="name">Fax:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+              </div>
+
+              <div class="col-md-3" style="display: inline-block;">
+                <div class="form-group">
+                  <label for="name">Last Name:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="name">Customer ID Type:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="name">Mother Maiden Name:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="name">KK Number:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="name">Office Phone:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                
+                <fieldset disabled>
+                  <div class="form-group">
+                    <label for="name">None</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                  </div>
+                </fieldset>
+
+              </div>
+
+              <div class="col-md-3" style="display: inline-block;">
+                <div class="form-group">
+                  <label for="name">Gender:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="name">Contact Number:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="name">Primary Email:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="name">Home Phone:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="name">Marital Status:</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <fieldset disabled>
+                  <div class="form-group">
+                    <label for="name">None</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                  </div>
+                </fieldset>
+
+              </div>
+            
+            </form>
+
+          </div>
+        </div>
 
         <h2>Section title</h2>
         <div class="table-responsive">
@@ -265,6 +552,9 @@
     </div>
   </div>
 
+    
+    <script src="jquery/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
   </body>
