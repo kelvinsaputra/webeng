@@ -17,8 +17,20 @@
 
 <body>
   <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
+    <img src="images/spicy.png" class="img img-responsive">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Spicy Corp.</a>
+    <div class="dropdown">
+      <button class="btn dropdown-toggle ml-auto" type="button" data-toggle="dropdown">All Records
+      <span class="caret"></span></button>
+      <ul class="dropdown-menu drop">
+        <li class="dropdown-item"><a href="#">Customer ID</a></li>
+        <li class="dropdown-item"><a href="#">Name</a></li>
+      </ul>
+    </div>
     <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+    <button type="button" class="btn btn-default btn-sm">
+      <span class="glyphicon glyphicon-search"></span> Search 
+    </button>
     <ul class="navbar-nav px-3">
       <li class="nav-item text-nowrap">
         <a class="nav-link" href="#">Sign out</a>
