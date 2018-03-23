@@ -63,7 +63,7 @@
         <div class="row">
           <div class="col-md-9">
 
-            <form method="POST" action="">
+            <form method="POST" action="/posts">
               {{ csrf_field() }}
 
               @include('errors')
@@ -74,76 +74,97 @@
               <div class="col-md-3" style="display: inline-block;">
                 <div class="form-group">
                   <label for="name">Customer Segment:</label>
-                  <input type="email" class="form-control" id="name" name="name" required>
+                  <input type="text" class="form-control" id="cust_segment" name="cust_segment" required>
                 </div>
 
                 <div class="form-group">
                   <label for="name">Customer Category:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
+                  <input type="text" class="form-control" id="cust_category" name="cust_category" required>
                 </div>
 
                 <div class="form-group">
                   <label for="name">Resident Type:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
+                  <input type="text" class="form-control" id="residence_type" name="residence_type" required>
                 </div>
 
                 <div class="form-group">
                   <label for="name">Date of Birth:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
+                  <input type="text" class="form-control" id="birth_date" name="birth_date" required>
                 </div>
 
                 <div class="form-group">
                   <label for="name">Occupation:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
+                  <input type="text" class="form-control" id="occupation" name="occupation" required>
                 </div>
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label for="name">Modified Time:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
-                </div>
+                  <input type="text" class="form-control" id="updated_at" name="updated_at">
+                </div> -->
+
+                <fieldset disabled>
+                  <div class="form-group">
+                    <label for="name">Modified Time:</label>
+                    <input type="text" class="form-control" id="updated_at" name="updated_at" required>
+                  </div>
+                </fieldset>
 
                 <div class="form-group">
                   <label for="name">Shared Balance Group:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
+                  <input type="text" class="form-control" id="shared_balance_group" name="shared_balance_group" required>
                 </div>
 
               </div>
 
               <div class="col-md-3" style="display: inline-block;">
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label for="name">Customer Account Number:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
-                </div>
+                  <input type="text" class="form-control" id="account_number" name="account_number" required>
+                </div> -->
+
+                <fieldset disabled>
+                  <div class="form-group">
+                    <label for="name">Customer Account Number:</label>
+                    <input type="text" class="form-control" id="account_number" name="account_number" required>
+                  </div>
+                </fieldset>
 
                 <div class="form-group">
                   <label for="name">Latitude:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
+                  <input type="text" class="form-control" id="latitude" name="latitude" required>
                 </div>
 
                 <div class="form-group">
                   <label for="name">NPWP Number:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
+                  <input type="text" class="form-control" id="npwp" name="npwp" required>
                 </div>
 
                 <div class="form-group">
                   <label for="name">Is Converted From Lead:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
+                  <input type="text" class="form-control" id="is_converted_from_lead" name="is_converted_from_lead" required>
                 </div>
 
                 <div class="form-group">
                   <label for="name">Primary Mobile:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
+                  <input type="text" class="form-control" id="primary_mobile" name="primary_mobile" required>
                 </div>
 
                 <div class="form-group">
                   <label for="name">Corporate Tax ID:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
+                  <input type="text" class="form-control" id="corp_tax_id" name="corp_tax_id" required>
                 </div>
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label for="name">Created Time:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
-                </div>
+                  <input type="text" class="form-control" id="created_at" name="created_at">
+                </div> -->
+
+                <fieldset disabled>
+                  <div class="form-group">
+                    <label for="name">Created Time:</label>
+                    <input type="text" class="form-control" id="created_at" name="created_at" required>
+                  </div>
+                </fieldset>
 
               </div>
 
@@ -170,38 +191,42 @@
 
                 <div class="form-group">
                   <label for="name">Duckapil Status:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
+                  <input type="text" class="form-control" id="dukcapil_status" name="dukcapil_status" required>
                 </div>
 
                 <div class="form-group">
                   <label for="name">Longitude:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
+                  <input type="text" class="form-control" id="longitude" name="longitude" required>
                 </div>
 
                 <div class="form-group">
                   <label for="name">Customer Status:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
+                  <input type="text" class="form-control" id="cust_status" name="cust_status" required>
                 </div>
 
                 <div class="form-group">
                   <label for="name">BSS Status:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
+                  <input type="text" class="form-control" id="bss_status" name="bss_status" required>
                 </div>
 
                 <div class="form-group">
                   <label for="name">Customer Username:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
+                  <input type="text" class="form-control" id="cust_username" name="cust_username" required>
                 </div>
 
-                <div class="form-group">
-                  <label for="name">Customer Comment:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
-                </div>
+                <fieldset disabled>
+                  <div class="form-group">
+                    <label for="name">-</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                  </div>
+                </fieldset>
 
-                <div class="form-group">
-                  <label for="name">Customer Note:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
-                </div>
+                <fieldset disabled>
+                  <div class="form-group">
+                    <label for="name">-</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                  </div>
+                </fieldset>
 
               </div>
 
@@ -227,32 +252,39 @@
               <div class="col-md-3" style="display: inline-block;">
                 <div class="form-group">
                   <label for="name">First Name:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
+                  <input type="text" class="form-control" id="first_name" name="first_name" required>
                 </div>
 
                 <div class="form-group">
                   <label for="name">Facebook Account Id:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
+                  <input type="text" class="form-control" id="facebook_acc_id" name="facebook_acc_id" required>
                 </div>
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label for="name">Customer ID:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
-                </div>
+                  <input type="text" class="form-control" id="cust_id" name="cust_id" required>
+                </div> -->
+
+                <fieldset disabled>
+                  <div class="form-group">
+                    <label for="name">Customer ID:</label>
+                    <input type="text" class="form-control" id="cust_id" name="cust_id" required>
+                  </div>
+                </fieldset>
 
                 <div class="form-group">
                   <label for="name">Preferred Language:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
+                  <input type="text" class="form-control" id="pref_language" name="pref_language" required>
                 </div>
 
                 <div class="form-group">
                   <label for="name">Home Status:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
+                  <input type="text" class="form-control" id="home_status" name="home_status" required>
                 </div>
 
                 <div class="form-group">
                   <label for="name">Fax:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
+                  <input type="text" class="form-control" id="fax_number" name="fax_number" required>
                 </div>
 
               </div>
@@ -260,27 +292,27 @@
               <div class="col-md-3" style="display: inline-block;">
                 <div class="form-group">
                   <label for="name">Last Name:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
+                  <input type="text" class="form-control" id="last_name" name="last_name" required>
                 </div>
 
                 <div class="form-group">
                   <label for="name">Customer ID Type:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
+                  <input type="text" class="form-control" id="cust_id_type" name="cust_id_type" required>
                 </div>
 
                 <div class="form-group">
                   <label for="name">Mother Maiden Name:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
+                  <input type="text" class="form-control" id="mother_name" name="mother_name" required>
                 </div>
 
                 <div class="form-group">
                   <label for="name">KK Number:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
+                  <input type="text" class="form-control" id="kk_number" name="kk_number" required>
                 </div>
 
                 <div class="form-group">
                   <label for="name">Office Phone:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
+                  <input type="text" class="form-control" id="office_phone" name="office_phone" required>
                 </div>
                 
                 <fieldset disabled>
@@ -295,27 +327,27 @@
               <div class="col-md-3" style="display: inline-block;">
                 <div class="form-group">
                   <label for="name">Gender:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
+                  <input type="text" class="form-control" id="gender" name="gender" required>
                 </div>
 
                 <div class="form-group">
                   <label for="name">Contact Number:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
+                  <input type="text" class="form-control" id="contact_number" name="contact_number" required>
                 </div>
 
                 <div class="form-group">
                   <label for="name">Primary Email:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
+                  <input type="email" class="form-control" id="primary_email" name="primary_email" required>
                 </div>
 
                 <div class="form-group">
                   <label for="name">Home Phone:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
+                  <input type="text" class="form-control" id="home_phone" name="home_phone" required>
                 </div>
 
                 <div class="form-group">
                   <label for="name">Marital Status:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
+                  <input type="text" class="form-control" id="marital_status" name="marital_status" required>
                 </div>
 
                 <fieldset disabled>
@@ -334,133 +366,110 @@
 
         </div>
 
-        <h2>Section title</h2>
+        <h2>Customer Data</h2>
         <div class="table-responsive">
           <table class="table table-striped table-sm">
             <thead>
               <tr>
-                <th>#</th>
-                <th>Header</th>
-                <th>Header</th>
-                <th>Header</th>
-                <th>Header</th>
+                <th>account_number</th>
+                <th>cust_username</th>
+                <th>cust_segment</th>
+                <th>cust_category</th>
+                <th>dukcapil_status</th>
+                <th>longitude</th>
+                <th>latitude</th>
+                <th>residence_type</th>
+                <th>npwp</th>
+                <th>birth_date</th>
+                <th>is_converted_from_lead</th>
+                <th>cust_status</th>
+                <th>occupation</th>
+                <th>primary_mobile</th>
+                <th>bss_status</th>
+                <th>corp_tax_id</th>
+                <th>shared_balance_group</th>
+                <th>updated_at</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1,001</td>
-                <td>Lorem</td>
-                <td>ipsum</td>
-                <td>dolor</td>
-                <td>sit</td>
-              </tr>
-              <tr>
-                <td>1,002</td>
-                <td>amet</td>
-                <td>consectetur</td>
-                <td>adipiscing</td>
-                <td>elit</td>
-              </tr>
-              <tr>
-                <td>1,003</td>
-                <td>Integer</td>
-                <td>nec</td>
-                <td>odio</td>
-                <td>Praesent</td>
-              </tr>
-              <tr>
-                <td>1,003</td>
-                <td>libero</td>
-                <td>Sed</td>
-                <td>cursus</td>
-                <td>ante</td>
-              </tr>
-              <tr>
-                <td>1,004</td>
-                <td>dapibus</td>
-                <td>diam</td>
-                <td>Sed</td>
-                <td>nisi</td>
-              </tr>
-              <tr>
-                <td>1,005</td>
-                <td>Nulla</td>
-                <td>quis</td>
-                <td>sem</td>
-                <td>at</td>
-              </tr>
-              <tr>
-                <td>1,006</td>
-                <td>nibh</td>
-                <td>elementum</td>
-                <td>imperdiet</td>
-                <td>Duis</td>
-              </tr>
-              <tr>
-                <td>1,007</td>
-                <td>sagittis</td>
-                <td>ipsum</td>
-                <td>Praesent</td>
-                <td>mauris</td>
-              </tr>
-              <tr>
-                <td>1,008</td>
-                <td>Fusce</td>
-                <td>nec</td>
-                <td>tellus</td>
-                <td>sed</td>
-              </tr>
-              <tr>
-                <td>1,009</td>
-                <td>augue</td>
-                <td>semper</td>
-                <td>porta</td>
-                <td>Mauris</td>
-              </tr>
-              <tr>
-                <td>1,010</td>
-                <td>massa</td>
-                <td>Vestibulum</td>
-                <td>lacinia</td>
-                <td>arcu</td>
-              </tr>
-              <tr>
-                <td>1,011</td>
-                <td>eget</td>
-                <td>nulla</td>
-                <td>Class</td>
-                <td>aptent</td>
-              </tr>
-              <tr>
-                <td>1,012</td>
-                <td>taciti</td>
-                <td>sociosqu</td>
-                <td>ad</td>
-                <td>litora</td>
-              </tr>
-              <tr>
-                <td>1,013</td>
-                <td>torquent</td>
-                <td>per</td>
-                <td>conubia</td>
-                <td>nostra</td>
-              </tr>
-              <tr>
-                <td>1,014</td>
-                <td>per</td>
-                <td>inceptos</td>
-                <td>himenaeos</td>
-                <td>Curabitur</td>
-              </tr>
-              <tr>
-                <td>1,015</td>
-                <td>sodales</td>
-                <td>ligula</td>
-                <td>in</td>
-                <td>libero</td>
-              </tr>
+              @if(count($customers))
+                @foreach($customers as $customer)
+                  <tr>
+                    <td>{{ $customer->account_number }}</td>
+                    <td>{{ $customer->cust_username }}</td>
+                    <td>{{ $customer->cust_segment }}</td>
+                    <td>{{ $customer->cust_category }}</td>
+                    <td>{{ $customer->dukcapil_status }}</td>
+                    <td>{{ $customer->longitude }}</td>
+                    <td>{{ $customer->latitude }}</td>
+                    <td>{{ $customer->residence_type }}</td>
+                    <td>{{ $customer->npwp }}</td>
+                    <td>{{ $customer->birth_date }}</td>
+                    <td>{{ $customer->is_converted_from_lead }}</td>
+                    <td>{{ $customer->cust_status }}</td>
+                    <td>{{ $customer->occupation }}</td>
+                    <td>{{ $customer->primary_mobile }}</td>
+                    <td>{{ $customer->bss_status }}</td>
+                    <td>{{ $customer->corp_tax_id }}</td>
+                    <td>{{ $customer->shared_balance_group }}</td>
+                    <td>{{ $customer->updated_at }}</td>
+                  </tr>
+                @endforeach
+              @endif
             </tbody>
           </table>
+
+          <h2>PIC Data</h2>
+        <div class="table-responsive">
+          <table class="table table-striped table-sm">
+            <thead>
+              <tr>
+                <th>pic_id</th>
+                <th>first_name</th>
+                <th>last_name</th>
+                <th>gender</th>
+                <th>facebook_acc_id</th>
+                <th>cust_id_type</th>
+                <th>contact_number</th>
+                <th>cust_id</th>
+                <th>mother_name</th>
+                <th>primary_email</th>
+                <th>pref_language</th>
+                <th>kk_number</th>
+                <th>home_phone</th>
+                <th>home_status</th>
+                <th>office_phone</th>
+                <th>marital_status</th>
+                <th>fax_number</th>
+              </tr>
+            </thead>
+            <tbody>
+              @if(count($pics))
+                @foreach($pics as $pic)
+                  <tr>
+                    <td>{{ $pic->pic_id }}</td>
+                    <td>{{ $pic->first_name }}</td>
+                    <td>{{ $pic->last_name }}</td>
+                    <td>{{ $pic->gender }}</td>
+                    <td>{{ $pic->facebook_acc_id }}</td>
+                    <td>{{ $pic->cust_id_type }}</td>
+                    <td>{{ $pic->contact_number }}</td>
+                    <td>{{ $pic->cust_id }}</td>
+                    <td>{{ $pic->mother_name }}</td>
+                    <td>{{ $pic->primary_email }}</td>
+                    <td>{{ $pic->pref_language }}</td>
+                    <td>{{ $pic->kk_number }}</td>
+                    <td>{{ $pic->home_phone }}</td>
+                    <td>{{ $pic->home_status }}</td>
+                    <td>{{ $pic->office_phone }}</td>
+                    <td>{{ $pic->marital_status }}</td>
+                    <td>{{ $pic->fax_number }}</td>
+                  </tr>
+                @endforeach
+              @endif
+            </tbody>
+          </table>
+
         </div>
       </main>
     </div>
