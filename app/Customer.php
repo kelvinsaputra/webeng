@@ -14,6 +14,6 @@ class Customer extends Model
 
     public function pic()
     {
-    	return $this->hasMany('App\Pic');
+    	//return $this->hasMany('App\Pic');
     }
 }

@@ -21,23 +21,18 @@ class CreatePicsTable extends Migration
             $table->string('facebook_acc_id');
             $table->string('cust_id_type');
             $table->string('contact_number');
-            $table->integer('cust_id');
+            $table->integer('cust_id'); //foreign keyin jd bisa ambil gender fname lname dkk dari ktp langsung, isi ini aja dulu pertama kali
             $table->string('mother_name');
             $table->string('primary_email');
             $table->string('pref_language');
-            $table->string('kk_number');
+            $table->string('kk_number'); //masukkin kknumber ada button cek kalo valid input di field fname dkk lgsg dari ktp
             $table->string('home_phone');
             $table->string('home_status');
             $table->string('office_phone');
             $table->string('marital_status');
             $table->string('fax_number');
         });
-
-        Schema::table('pics', function($table) {
-            $table->foreign('cust_id')->references('account_number')->on('customers');
-        });
     }
-
     /**
      * Reverse the migrations.
      *

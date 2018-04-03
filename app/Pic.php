@@ -7,8 +7,9 @@ class Pic extends Model
 
 	public $timestamps = false;
 
-	public function customer()
+	public function ktp()
     {
-    	return $this->belongsTo('App\Customer');
+    	//return $this->belongsTo('App\Customer');
+    	return $this->hasOne('App\Ktp');
     }
 }

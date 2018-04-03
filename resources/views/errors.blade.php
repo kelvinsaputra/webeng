@@ -1,8 +1,8 @@
-@if(count($customers))
+@if(count($errors))
   <div class="form-group">
 	<div class="alert alert-danger">
 	  	<ul>
-	  		@foreach($customers as $error)
+	  		@foreach($errors as $error)
 	  			<li>{{ $error->cust_username }}</li>
 	  		@endforeach
 

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Customer;
 use App\Pic;
+use App\Ktp;
+use App\Kk;
 
 class CustomerController extends Controller
 {
@@ -80,6 +82,11 @@ class CustomerController extends Controller
 
     	]);
 
+    	$validatedData = $request->validate([
+    		'first_name' => 'required|regex:/(^([a-zA-z]+)(\d+)?$)/u',
+    		'last_name' => 'required|regex:/(^([a-zA-z]+)(\d+)?$)/u',
+		]);
+
     	Pic::create([
     		'first_name' => request('first_name'),
 
@@ -143,5 +150,19 @@ class CustomerController extends Controller
     	
 
     	return redirect()->action('CustomerController@index');
+    }
+
+    public function search(Request $request)
+    {
+    	$customers = Customer::all()->where('account_number', $request->search);
+      $pics = Pic::all()->where('first_name', $request->search);
+    	//dd($cust);
+      return view('search', compact('customers', 'pics'));
+    }
+
+    public function edit($value){
+      //ada sebuah form, post value->masukin method ini, kalo ada isinya tarik -> pas ke view
+        $var = Ktp::all()->where('cust_id', $value);
+        dd($var);
     }
 }
