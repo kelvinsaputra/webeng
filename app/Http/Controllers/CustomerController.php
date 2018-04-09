@@ -14,6 +14,7 @@ class CustomerController extends Controller
     {
     	$customers = Customer::all();
     	$pics = Pic::all();
+      // $kks = Kk::all();
 
 		return view('welcome', compact('customers', 'pics'));
     }
@@ -26,27 +27,27 @@ class CustomerController extends Controller
 
     public function store()
     {
-    	$random = rand();
+    	// $random = rand();
 
-    	$customers = Customer::all('account_number');
+    	// $customers = Customer::all('account_number');
 
-    	$found = true;
+    	// $found = true;
 
-    	while($found){
-    		$found = false; //awal anggap ga ada duplicate
-    		foreach ($customers as $value) { //loop setiap isi db
-    			if($value->account_number == $random){
-    				$random = rand(); //random ulang
-    				$found = true; //found masih true
-    				break; //kalo ketemu yg sama keluar langsung
-    			}
-    		}
-    	}
+    	// while($found){
+    	// 	$found = false; //awal anggap ga ada duplicate
+    	// 	foreach ($customers as $value) { //loop setiap isi db
+    	// 		if($value->account_number == $random){
+    	// 			$random = rand(); //random ulang
+    	// 			$found = true; //found masih true
+    	// 			break; //kalo ketemu yg sama keluar langsung
+    	// 		}
+    	// 	}
+    	// }
 
     	
 
     	Customer::create([
-    		'account_number' => $random,
+    		'account_number' => request('account_number'),
 
     		'cust_username' => request('cust_username'),
 
@@ -82,10 +83,10 @@ class CustomerController extends Controller
 
     	]);
 
-    	$validatedData = $request->validate([
-    		'first_name' => 'required|regex:/(^([a-zA-z]+)(\d+)?$)/u',
-    		'last_name' => 'required|regex:/(^([a-zA-z]+)(\d+)?$)/u',
-		]);
+    // 	$validatedData = $request->validate([
+    // 		'first_name' => 'required|regex:/(^([a-zA-z]+)(\d+)?$)/u',
+    // 		'last_name' => 'required|regex:/(^([a-zA-z]+)(\d+)?$)/u',
+		  // ]);
 
     	Pic::create([
     		'first_name' => request('first_name'),
@@ -100,7 +101,7 @@ class CustomerController extends Controller
 
     		'contact_number' => request('contact_number'),
 
-    		'cust_id' => $random,
+    		'cust_id' => request('cust_id'),
 
     		'mother_name' => request('mother_name'),
 
@@ -154,15 +155,126 @@ class CustomerController extends Controller
 
     public function search(Request $request)
     {
-    	$customers = Customer::all()->where('account_number', $request->search);
-      $pics = Pic::all()->where('first_name', $request->search);
-    	//dd($cust);
-      return view('search', compact('customers', 'pics'));
+    	//$customers = Customer::all()->where('account_number', $request->search);
+      $customer_ids = Pic::all()->where('cust_id', $request->search);
+      $names = Pic::all()->where('first_name', $request->search);
+      $ktps = Ktp::all()->where('cust_id', $request->search);
+
+      $number = 0;
+      if(count($names)){
+        $number = $names[0]->cust_id;
+        $ktps = Ktp::all()->where('cust_id', $number);
+      }else{
+        $names = Pic::all()->where('last_name', $request->search);
+      }
+
+      if(!count($ktps)){
+        $ktps = Ktp::all()->where('first_name', $request->search);        
+      }
+
+      if(!count($ktps)){
+        $ktps = Ktp::all()->where('last_name', $request->search);        
+      }
+      
+      return view('search', compact('customer_ids', 'names', 'ktps'));
     }
 
     public function edit($value){
-      //ada sebuah form, post value->masukin method ini, kalo ada isinya tarik -> pas ke view
-        $var = Ktp::all()->where('cust_id', $value);
-        dd($var);
+      $pics = Pic::all()->where('pic_id', $value);
+      $customers = Customer::all()->where('customer_id', $value);
+      $array = [];
+
+      $temp = $value;
+
+      foreach ($customers as $value) {
+        $array['account_number'] = $value->account_number;
+        $array['cust_username'] = $value->cust_username;
+        $array['cust_segment'] = $value->cust_segment;
+        $array['cust_category'] = $value->cust_category; 
+        $array['dukcapil_status'] = $value->dukcapil_status; 
+        $array['longitude'] = $value->longitude; 
+        $array['latitude'] = $value->latitude; 
+        $array['residence_type'] = $value->residence_type; 
+        $array['npwp'] = $value->npwp; 
+        $array['birth_date'] = $value->birth_date; 
+        $array['is_converted_from_lead'] = $value->is_converted_from_lead;
+        $array['cust_status'] = $value->cust_status; 
+        $array['occupation'] = $value->occupation; 
+        $array['primary_mobile'] = $value->primary_mobile; 
+        $array['bss_status'] = $value->bss_status; 
+        $array['corp_tax_id'] = $value->corp_tax_id; 
+        $array['shared_balance_group'] = $value->shared_balance_group; 
+        $array['updated_at'] = $value->updated_at;
+        $array['created_at'] = $value->created_at;
+      }
+
+      foreach ($pics as $value) {
+        $array['pic_id'] = $value->pic_id;
+        $array['first_name'] = $value->first_name;
+        $array['last_name'] = $value->last_name;
+        $array['gender'] = $value->gender;
+        $array['facebook_acc_id'] = $value->facebook_acc_id;
+        $array['cust_id_type'] = $value->cust_id_type;
+        $array['contact_number'] = $value->contact_number;
+        $array['cust_id'] = $value->cust_id;
+        $array['mother_name'] = $value->mother_name;
+        $array['primary_email'] = $value->primary_email;
+        $array['pref_language'] = $value->pref_language;
+        $array['kk_number'] = $value->kk_number;
+        $array['home_phone'] = $value->home_phone;
+        $array['home_status'] = $value->home_status;
+        $array['office_phone'] = $value->office_phone;
+        $array['marital_status'] = $value->marital_status;
+        $array['fax_number'] = $value->fax_number;
+      }
+
+      return view('update', compact('array', 'temp'));
     }
+
+    public function update(Request $request){
+      $customer = Customer::all()->where('customer_id', $request->id)->first();
+      $customer->account_number = $request->account_number;
+      $customer->cust_username = $request->cust_username;
+      $customer->cust_segment = $request->cust_segment;
+      $customer->cust_category = $request->cust_category;
+      $customer->dukcapil_status = $request->dukcapil_status;
+      $customer->longitude = $request->longitude;
+      $customer->latitude = $request->latitude;
+      $customer->residence_type = $request->residence_type;
+      $customer->npwp = $request->npwp;
+      $customer->birth_date = $request->birth_date;
+      $customer->is_converted_from_lead = $request->is_converted_from_lead;
+      $customer->cust_status = $request->cust_status;
+      $customer->occupation = $request->occupation;
+      $customer->primary_mobile = $request->primary_mobile;
+      $customer->bss_status = $request->bss_status;
+      $customer->corp_tax_id = $request->corp_tax_id;
+      $customer->shared_balance_group = $request->shared_balance_group;
+
+      $customer->save();
+
+      $pic = Pic::all()->where('pic_id', $request->id)->first();
+      $pic->first_name = $request->first_name;
+      $pic->last_name = $request->last_name;
+      $pic->gender = $request->gender;
+      $pic->facebook_acc_id = $request->facebook_acc_id;
+      $pic->cust_id_type = $request->cust_id_type;
+      $pic->contact_number = $request->contact_number;
+      $pic->cust_id = $request->cust_id;
+      $pic->mother_name = $request->mother_name;
+      $pic->primary_email = $request->primary_email;
+      $pic->pref_language = $request->pref_language;
+      $pic->kk_number = $request->kk_number;
+      $pic->home_phone = $request->home_phone;
+      $pic->home_status = $request->home_status;
+      $pic->office_phone = $request->office_phone;
+      $pic->marital_status = $request->marital_status;
+      $pic->fax_number = $request->fax_number;
+
+      $pic->save();
+
+      return redirect()->action('CustomerController@index');
+
+    }
+
 }

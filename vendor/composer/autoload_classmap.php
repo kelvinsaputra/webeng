@@ -23,6 +23,8 @@ return array(
     'App\\Http\\Middleware\\TrimStrings' => $baseDir . '/app/Http/Middleware/TrimStrings.php',
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
+    'App\\Kk' => $baseDir . '/app/Kk.php',
+    'App\\Ktp' => $baseDir . '/app/Ktp.php',
     'App\\Model' => $baseDir . '/app/Model.php',
     'App\\Pic' => $baseDir . '/app/Pic.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',

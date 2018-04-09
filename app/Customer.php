@@ -4,6 +4,7 @@ namespace App;
 
 class Customer extends Model
 {
+	protected $primaryKey = 'customer_id';
 
     public static function searchCustomer($value)
     {

@@ -24,10 +24,9 @@
     <div class="dropdown">
       <button class="btn dropdown-toggle ml-auto" type="button" data-toggle="dropdown">All Records
       <span class="caret"></span></button>
-      <ul class="dropdown-menu drop" role="menu" aria-labelledby="dropdownMenu1">
-        <li role="presentation" class="dropdown-item"><a role="menuitem" href="#">Customer ID</a></li>
-        <li role="presentation" class="dropdown-item"><a role="menuitem" href="#">Name</a></li>
-      </ul>
+      <ul class="dropdown-menu drop">
+        <li class="dropdown-item"><a href="#">Customer ID</a></li>
+        <li class="dropdown-item"><a href="#">Name</a></li>
       </ul>
     </div>
     <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search" id="search" name="search">
@@ -76,27 +75,27 @@
               <div class="col-md-3" style="display: inline-block;">
 
                 {{ Form::label('cust_segment', 'Customer Segment :') }}
-                {{ Form::select('cust_segment', array('Retail' => 'Retail', 'Business' => 'Business'), 'Retail', ['class' => 'form-control']) }}
+                {{ Form::text('cust_segment', null, array('class' => 'form-control', 'required')) }}
 
                 {{ Form::label('cust_category', 'Customer Category :') }}
-                {{ Form::select('cust_category', array('Default' => 'Default', 'Enterprise' => 'Enterprise'), 'Default', ['class' => 'form-control']) }}
+                {{ Form::text('cust_category', null, array('class' => 'form-control', 'required')) }}
                 
                 {{ Form::label('residence_type', 'Residence Type :') }}
-                {{ Form::select('residence_type', array('Domestic' => 'Domestic', 'Foreign' => 'Foreign'), 'Domestic', ['class' => 'form-control']) }}
+                {{ Form::text('residence_type', null, array('class' => 'form-control', 'required')) }}
 
                 {{ Form::label('birth_date', 'Date of Birth :') }}
                 {{ Form::date('birth_date', null, array('class' => 'form-control', 'required')) }}
 
                 {{ Form::label('occupation', 'Occupation :') }}
-                {{ Form::select('occupation', array('Employed' => 'Employed', 'Private' => 'Private'), 'Employed', ['class' => 'form-control']) }}
+                {{ Form::text('occupation', null, array('class' => 'form-control', 'required')) }}
 
                 <fieldset disabled>
                 {{ Form::label('updated_at', 'Modified Time :') }}
                 {{ Form::text('updated_at', null, array('class' => 'form-control')) }}
                 </fieldset>
 
-                {{ Form::label('shared_balance_group', 'Share Balance Group :') }}
-                {{ Form::text('shared_balance_group', null, array('class' => 'form-control', 'required')) }}
+                {{ Form::label('shared_balance_group', 'Share Balance Group :', 'required') }}
+                {{ Form::text('shared_balance_group', null, array('class' => 'form-control')) }}
 
               </div>
 
@@ -112,8 +111,7 @@
                 {{ Form::text('npwp', null, array('class' => 'form-control', 'required', 'pattern' => '^[0-9]+$')) }}
 
                 {{ Form::label('is_converted_from_lead', 'Is Converted from Lead :') }}
-                <!-- {{ Form::number('is_converted_from_lead', null, array('class' => 'form-control', 'required', 'min' => '0', 'max' => '1', 'title' => '0 untuk FALSE dan 1 untuk TRUE')) }} -->
-                {{ Form::select('is_converted_from_lead', array(0 => 'Valid', 1 => 'Not Valid'), 0, ['class' => 'form-control']) }}
+                {{ Form::number('is_converted_from_lead', null, array('class' => 'form-control', 'required', 'min' => '0', 'max' => '1', 'title' => '0 untuk FALSE dan 1 untuk TRUE')) }}
 
                 {{ Form::label('primary_mobile', 'Primary Mobile :') }}
                 {{ Form::text('primary_mobile', null, array('class' => 'form-control', 'required', 'pattern' => '^[0-9]+$')) }}
@@ -131,14 +129,13 @@
               <div class="col-md-3" style="display: inline-block;">
 
                 {{ Form::label('dukcapil_status', 'Dukcapil Status :') }}
-                <!-- {{ Form::number('dukcapil_status', null, array('class' => 'form-control', 'required', 'min' => '0', 'max' => '1', 'title' => '0 untuk FALSE dan 1 untuk TRUE')) }} -->
-                {{ Form::select('dukcapil_status', array(0 => 'Valid', 1 => 'Not Valid'), 0, ['class' => 'form-control']) }}
+                {{ Form::number('dukcapil_status', null, array('class' => 'form-control', 'required', 'min' => '0', 'max' => '1', 'title' => '0 untuk FALSE dan 1 untuk TRUE')) }}
 
                 {{ Form::label('longitude', 'Longitude :') }}
                 {{ Form::number('longitude', null, array('class' => 'form-control', 'required')) }}
 
                 {{ Form::label('cust_status', 'Customer Status :') }}
-                {{ Form::select('cust_status', array('Registered' => 'Registered', 'Active' => 'Active', 'Suspended' => 'Suspended', 'Deactive' => 'Deactive'), 'Own House', ['class' => 'form-control']) }}
+                {{ Form::text('cust_status', null, array('class' => 'form-control', 'required')) }}
 
                 {{ Form::label('bss_status', 'BSS Status :') }}
                 {{ Form::text('bss_status', null, array('class' => 'form-control', 'required')) }}
@@ -160,16 +157,16 @@
 
               <div class="form-group float-right">
                 
-                {{ Form::submit('Add', array('class' => 'btn btn-primary')) }}
+                {{ Form::submit('Save', array('class' => 'btn btn-primary')) }}
 
                 <div class="btn-group" role="group" aria-label="Basic example">
-                  <button type="button" class="btn btn-secondary">Save</button>
+                  <button type="button" class="btn btn-secondary">Add</button>
                   <button type="button" class="btn btn-secondary">Edit</button>
                   <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   More
                   </button>
                   <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                    <a class="dropdown-item" href="#">Check Dukcapil</a>
+                    <a class="dropdown-item" href="#">Check Ducapil</a>
                     <a class="dropdown-item" href="#">Another dropdown</a>
                   </div>
                 </div>
@@ -190,10 +187,10 @@
                 {{ Form::text('cust_id', null, array('class' => 'form-control', 'required', 'pattern' => '^[0-9]+$')) }}
 
                 {{ Form::label('pref_language', 'Preferred Language :') }}
-                {{ Form::select('pref_language', ['Indonesia' => 'Indonesia', 'English' => 'English'], null, ['class' => 'form-control']) }}
+                {{ Form::text('pref_language', null, array('class' => 'form-control', 'required')) }}
 
                 {{ Form::label('home_status', 'Home Status :') }}
-                {{ Form::select('home_status', array('Own House' => 'Own House', 'Rent' => 'Rent', 'Apartment' => 'Apartment'), 'Own House', ['class' => 'form-control']) }}
+                {{ Form::text('home_status', null, array('class' => 'form-control', 'required')) }}
 
                 {{ Form::label('fax_number', 'Fax :') }}
                 {{ Form::text('fax_number', null, array('class' => 'form-control', 'required', 'pattern' => '^[0-9]+$')) }}
@@ -206,7 +203,7 @@
                 {{ Form::text('last_name', null, array('class' => 'form-control', 'required', 'pattern' => '^[a-zA-Z]+$')) }}
 
                 {{ Form::label('cust_id_type', 'Customer ID Type :') }}
-                {{ Form::select('cust_id_type', array('KTP' => 'KTP', 'Passport' => 'Passport'), 'KTP', ['class' => 'form-control']) }}
+                {{ Form::text('cust_id_type', null, array('class' => 'form-control', 'required')) }}
 
                 {{ Form::label('mother_name', 'Mother Maide Name :') }}
                 {{ Form::text('mother_name', null, array('class' => 'form-control', 'required')) }}
@@ -227,7 +224,7 @@
               <div class="col-md-3" style="display: inline-block;">
 
                 {{ Form::label('gender', 'Gender :') }}
-                {{ Form::select('gender', ['Pria' => 'Pria', 'Wanita' => 'Wanita'], null, ['class' => 'form-control']) }}
+                {{ Form::text('gender', null, array('class' => 'form-control', 'required')) }}
 
                 {{ Form::label('contact_number', 'Contact Number :') }}
                 {{ Form::text('contact_number', null, array('class' => 'form-control', 'required', 'pattern' => '^[0-9]+$')) }}
@@ -261,49 +258,49 @@
           <table class="table table-striped table-sm">
             <thead>
               <tr>
-                <th>modify</th>
                 <th>account_number</th>
                 <th>cust_username</th>
                 <th>cust_segment</th>
                 <th>cust_category</th>
-                <!-- <th>dukcapil_status</th> -->
+                <th>dukcapil_status</th>
                 <th>longitude</th>
                 <th>latitude</th>
                 <th>residence_type</th>
                 <th>npwp</th>
                 <th>birth_date</th>
-                <!-- <th>is_converted_from_lead</th> -->
+                <th>is_converted_from_lead</th>
                 <th>cust_status</th>
                 <th>occupation</th>
                 <th>primary_mobile</th>
-                <!-- <th>bss_status</th> -->
+                <th>bss_status</th>
                 <th>corp_tax_id</th>
-                <!-- <th>shared_balance_group</th> -->
+                <th>shared_balance_group</th>
                 <th>updated_at</th>
+                <th>modify</th>
               </tr>
             </thead>
             <tbody>
               @if(count($customers))
                 @foreach($customers as $customer)
                   <tr>
-                    <td><a href="edit/{{ $customer->customer_id }}">edit</a></td>
+                    <td><a href="update/{{ $customer->account_number }}">edit</a></td>
                     <td>{{ $customer->account_number }}</td>
                     <td>{{ $customer->cust_username }}</td>
                     <td>{{ $customer->cust_segment }}</td>
                     <td>{{ $customer->cust_category }}</td>
-                    <!-- <td>{{ $customer->dukcapil_status }}</td> -->
+                    <td>{{ $customer->dukcapil_status }}</td>
                     <td>{{ $customer->longitude }}</td>
                     <td>{{ $customer->latitude }}</td>
                     <td>{{ $customer->residence_type }}</td>
                     <td>{{ $customer->npwp }}</td>
                     <td>{{ $customer->birth_date }}</td>
-                    <!-- <td>{{ $customer->is_converted_from_lead }}</td> -->
+                    <td>{{ $customer->is_converted_from_lead }}</td>
                     <td>{{ $customer->cust_status }}</td>
                     <td>{{ $customer->occupation }}</td>
                     <td>{{ $customer->primary_mobile }}</td>
-                    <!-- <td>{{ $customer->bss_status }}</td> -->
+                    <td>{{ $customer->bss_status }}</td>
                     <td>{{ $customer->corp_tax_id }}</td>
-                    <!-- <td>{{ $customer->shared_balance_group }}</td> -->
+                    <td>{{ $customer->shared_balance_group }}</td>
                     <td>{{ $customer->updated_at }}</td>
                   </tr>
                 @endforeach
@@ -316,16 +313,15 @@
           <table class="table table-striped table-sm">
             <thead>
               <tr>
-                <th>modify</th>
-                <!-- <th>pic_id</th> -->
+                <th>pic_id</th>
                 <th>first_name</th>
                 <th>last_name</th>
                 <th>gender</th>
                 <th>facebook_acc_id</th>
-                <!-- <th>cust_id_type</th> -->
+                <th>cust_id_type</th>
                 <th>contact_number</th>
                 <th>cust_id</th>
-                <!-- <th>mother_name</th> -->
+                <th>mother_name</th>
                 <th>primary_email</th>
                 <th>pref_language</th>
                 <th>kk_number</th>
@@ -340,16 +336,16 @@
               @if(count($pics))
                 @foreach($pics as $pic)
                   <tr>
-                    <td><a href="edit/{{$pic->pic_id}}">edit</a></td>
-                    <!-- <td>{{ $pic->pic_id }}</td> -->
+                    <td><a href="update/{{$pic->pic_id}}">edit</a></td>
+                    <td>{{ $pic->pic_id }}</td>
                     <td>{{ $pic->first_name }}</td>
                     <td>{{ $pic->last_name }}</td>
                     <td>{{ $pic->gender }}</td>
                     <td>{{ $pic->facebook_acc_id }}</td>
-                    <!-- <td>{{ $pic->cust_id_type }}</td> -->
+                    <td>{{ $pic->cust_id_type }}</td>
                     <td>{{ $pic->contact_number }}</td>
                     <td>{{ $pic->cust_id }}</td>
-                    <!-- <td>{{ $pic->mother_name }}</td> -->
+                    <td>{{ $pic->mother_name }}</td>
                     <td>{{ $pic->primary_email }}</td>
                     <td>{{ $pic->pref_language }}</td>
                     <td>{{ $pic->kk_number }}</td>
@@ -373,15 +369,6 @@
     <script src="jquery/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-
-    <script type="text/javascript">
-      $(function(){
-       $(".dropdown-menu li a").click(function(){
-         $(this).parents('.dropdown').children('.btn').text($(this).text());
-         $(this).parents('.dropdown').children('.btn').val($(this).text());
-       });
-     });
-    </script>
 
   </body>
   </html>

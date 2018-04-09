@@ -15,22 +15,19 @@ class CreateKtpsTable extends Migration
     {
         Schema::create('ktps', function (Blueprint $table) {
             $table->integer('cust_id')->primary(); //
-            $table->string('kk_number'); //1 kk many ktp
+            $table->integer('kk_id'); //1 kk many ktp
             $table->string('first_name');
             $table->string('last_name');
             $table->string('gender');
-            $table->date('birth_date');
-            $table->string('residence_type');
-            $table->string('occupation');
         });
 
-        Schema::table('ktps', function($table) {
-            $table->foreign('kk_number')->references('kk_number')->on('kks');
-        });
+        // Schema::table('ktps', function($table) {
+        //     $table->foreign('kk_id')->references('kk_id')->on('kks');
+        // });
 
-        Schema::table('pics', function($table) {
-            $table->foreign('cust_id')->references('cust_id')->on('ktps');
-        });
+        // Schema::table('pics', function($table) {
+        //     $table->foreign('cust_id')->references('cust_id')->on('ktps');
+        // });
     }
 
     /**

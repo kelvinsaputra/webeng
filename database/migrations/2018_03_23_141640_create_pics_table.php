@@ -15,9 +15,9 @@ class CreatePicsTable extends Migration
     {
         Schema::create('pics', function (Blueprint $table) {
             $table->increments('pic_id');
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('gender');
+            $table->string('first_name'); //
+            $table->string('last_name'); //
+            $table->string('gender'); //
             $table->string('facebook_acc_id');
             $table->string('cust_id_type');
             $table->string('contact_number');
@@ -25,7 +25,7 @@ class CreatePicsTable extends Migration
             $table->string('mother_name');
             $table->string('primary_email');
             $table->string('pref_language');
-            $table->string('kk_number'); //masukkin kknumber ada button cek kalo valid input di field fname dkk lgsg dari ktp
+            $table->string('kk_number'); //salah wj ini-> //masukkin kknumber ada button cek kalo valid input di field fname dkk lgsg dari ktp
             $table->string('home_phone');
             $table->string('home_status');
             $table->string('office_phone');

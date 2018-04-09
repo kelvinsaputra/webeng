@@ -14,11 +14,12 @@ class CreateCustomersTable extends Migration
     public function up()
     {
         Schema::create('customers', function (Blueprint $table) {
-            $table->integer('account_number')->primary();
+            $table->increments('customer_id');
+            $table->integer('account_number');
             $table->string('cust_username');
             $table->string('cust_segment');
             $table->string('cust_category');
-            $table->string('dukcapil_status');
+            $table->boolean('dukcapil_status');
             $table->integer('longitude');
             $table->integer('latitude');
             $table->string('residence_type');

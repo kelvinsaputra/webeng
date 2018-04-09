@@ -4,7 +4,7 @@ namespace App;
 
 class Pic extends Model
 {
-
+	protected $primaryKey = 'pic_id';
 	public $timestamps = false;
 
 	public function ktp()

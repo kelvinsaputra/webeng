@@ -14,7 +14,8 @@ class CreateKksTable extends Migration
     public function up()
     {
         Schema::create('kks', function (Blueprint $table) {
-            $table->string('kk_number')->unique()->primary();
+            $table->integer('kk_id')->primary();
+            $table->string('kk_number');
             $table->string('statusInFam'); //ayah ibu anak
         });
     }
