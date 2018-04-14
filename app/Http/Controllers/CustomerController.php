@@ -3,21 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests;
 use App\Customer;
 use App\Pic;
 use App\Ktp;
 use App\Kk;
+use Location;
 
 class CustomerController extends Controller
 {
     public function index()
     {
-    	$customers = Customer::all();
-    	$pics = Pic::all();
-      // $kks = Kk::all();
+     $customers = Customer::all();
+     $pics = Pic::all();
 
-		return view('welcome', compact('customers', 'pics'));
-    }
+    return view('welcome', compact('customers', 'pics'));
+  }
 
   //   public function show(Customer $customer_number)
   //   {
@@ -25,7 +26,7 @@ class CustomerController extends Controller
 		 //return view('welcome', compact('customers'));
   //   }
 
-    public function store()
+    public function store(Request $request)
     {
     	// $random = rand();
 
@@ -43,8 +44,15 @@ class CustomerController extends Controller
     	// 		}
     	// 	}
     	// }
-
-    	
+      $ip = @file_get_contents("http://ipecho.net/plain");
+      if($ip === false){
+        $lat = 0;
+        $long = 0;
+      }else{
+         $position = Location::get($ip);
+          $lat = $position->latitude;
+          $long = $position->longitude;
+      }
 
     	Customer::create([
     		'account_number' => request('account_number'),
@@ -57,9 +65,9 @@ class CustomerController extends Controller
 
     		'dukcapil_status' => request('dukcapil_status'),
  
-    		'longitude' => request('longitude'),
+    		'longitude' => $lat,
 
-    		'latitude' => request('latitude'),
+    		'latitude' => $long,
 
     		'residence_type' => request('residence_type'),
 

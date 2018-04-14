@@ -19,7 +19,7 @@
 <form action="/search" method="post">
 {{ csrf_field() }}
   <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-    <img src="images/spicy.png" class="img img-responsive">
+    <img src="images/spicy.png" class="img img-responsive" />
     <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/">Spicy Corp.</a>
     <div class="dropdown">
       <button class="btn dropdown-toggle ml-auto" type="button" data-toggle="dropdown">All Records
@@ -105,16 +105,18 @@
               <div class="col-md-3" style="display: inline-block;">
 
                 {{ Form::label('account_number', 'Customer Account Number :') }}
-                {{ Form::number('account_number', $array['account_number'], array('class' => 'form-control', 'required', 'min' => '1')) }}
+                {{ Form::text('account_number', $array['account_number'], array('class' => 'form-control', 'required', 'pattern' => '^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$')) }}
 
+                <fieldset disabled>
                 {{ Form::label('latitude', 'Latitude :') }}
-                {{ Form::number('latitude', $array['latitude'], array('class' => 'form-control', 'required')) }}
+                {{ Form::number('latitude', $array['latitude'], array('class' => 'form-control')) }}
+                </fieldset>
 
                 {{ Form::label('npwp', 'NPWP Number :') }}
                 {{ Form::text('npwp', $array['npwp'], array('class' => 'form-control', 'required', 'pattern' => '^[0-9]+$')) }}
 
                 {{ Form::label('is_converted_from_lead', 'Is Converted from Lead :') }}
-                {{ Form::select('is_converted_from_lead', array(0 => 'Valid', 1 => 'Not Valid'), $array['is_converted_from_lead'], ['class' => 'form-control']) }}
+                {{ Form::select('is_converted_from_lead', array(0 => 'True', 1 => 'False'), $array['is_converted_from_lead'], ['class' => 'form-control']) }}
 
                 {{ Form::label('primary_mobile', 'Primary Mobile :') }}
                 {{ Form::text('primary_mobile', $array['primary_mobile'], array('class' => 'form-control', 'required', 'pattern' => '^[0-9]+$')) }}
@@ -134,8 +136,10 @@
                 {{ Form::label('dukcapil_status', 'Dukcapil Status :') }}
                 {{ Form::select('dukcapil_status', array(0 => 'Valid', 1 => 'Not Valid'), $array['dukcapil_status'], ['class' => 'form-control']) }}
 
+                <fieldset disabled>
                 {{ Form::label('longitude', 'Longitude :') }}
-                {{ Form::number('longitude', $array['longitude'], array('class' => 'form-control', 'required')) }}
+                {{ Form::number('longitude', $array['longitude'], array('class' => 'form-control')) }}
+                </fieldset>
 
                 {{ Form::label('cust_status', 'Customer Status :') }}
                 {{ Form::select('cust_status', array('Registered' => 'Registered', 'Active' => 'Active', 'Suspended' => 'Suspended', 'Deactive' => 'Deactive'), $array['cust_status'], ['class' => 'form-control']) }}
@@ -206,7 +210,7 @@
                 {{ Form::text('last_name', $array['last_name'], array('class' => 'form-control', 'required', 'pattern' => '^[a-zA-Z]+$')) }}
 
                 {{ Form::label('cust_id_type', 'Customer ID Type :') }}
-                {{ Form::text('cust_id_type', $array['cust_id_type'], array('class' => 'form-control', 'required')) }}
+                {{ Form::select('cust_id_type', array('KTP' => 'KTP', 'Passport' => 'Passport'), $array['cust_id_type'], ['class' => 'form-control']) }}
 
                 {{ Form::label('mother_name', 'Mother Maide Name :') }}
                 {{ Form::text('mother_name', $array['mother_name'], array('class' => 'form-control', 'required')) }}

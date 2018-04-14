@@ -120,7 +120,9 @@
                         <li>Office Phone : {{ $name->office_phone }}</li>
                         <li>Martial Status : {{ $name->marital_status }}</li>
                         <li>Fax Number : {{ $name->fax_number }}</li>
-                        <td><a href="edit/{{ $name->pic_id }}">edit</a></td>
+                        <br>
+                        <td><button type="button" class="btn btn-success"><a href="edit/{{ $name->pic_id }}" style="text-decoration: none; color: white;">Edit</a></button><td>
+                        <td><button type="button" class="btn btn-danger"><a href="/" style="text-decoration: none; color: white;">Cancel</a></button><td>
                         <br><hr><br>
                       @endforeach
                     </ul>
@@ -142,6 +144,9 @@
                         <li>Birth Date : {{ $name->birth_date }}</li>
                         <li>Residence type : {{ $name->residence_type }}</li>
                         <li>Occupation : {{ $name->occupation }}</li>
+                        <br>
+                        <td><button type="button" class="btn btn-success"><a href="edit/{{ $name->pic_id }}" style="text-decoration: none; color: white;">Edit</a></button><td>
+                        <td><button type="button" class="btn btn-danger"><a href="/" style="text-decoration: none; color: white;">Cancel</a></button><td>
                         <br><hr><br>
                       @endforeach
                       </h5>

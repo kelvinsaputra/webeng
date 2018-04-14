@@ -103,17 +103,19 @@
               <div class="col-md-3" style="display: inline-block;">
 
                 {{ Form::label('account_number', 'Customer Account Number :') }}
-                {{ Form::number('account_number', null, array('class' => 'form-control', 'required', 'min' => '1')) }}
+                {{ Form::text('account_number', null, array('class' => 'form-control', 'required', 'pattern' => '^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$')) }}
 
+                <fieldset disabled>
                 {{ Form::label('latitude', 'Latitude :') }}
-                {{ Form::number('latitude', null, array('class' => 'form-control', 'required')) }}
+                {{ Form::number('latitude', null, array('class' => 'form-control')) }}
+                </fieldset>
 
                 {{ Form::label('npwp', 'NPWP Number :') }}
                 {{ Form::text('npwp', null, array('class' => 'form-control', 'required', 'pattern' => '^[0-9]+$')) }}
 
                 {{ Form::label('is_converted_from_lead', 'Is Converted from Lead :') }}
                 <!-- {{ Form::number('is_converted_from_lead', null, array('class' => 'form-control', 'required', 'min' => '0', 'max' => '1', 'title' => '0 untuk FALSE dan 1 untuk TRUE')) }} -->
-                {{ Form::select('is_converted_from_lead', array(0 => 'Valid', 1 => 'Not Valid'), 0, ['class' => 'form-control']) }}
+                {{ Form::select('is_converted_from_lead', array(0 => 'True', 1 => 'False'), 0, ['class' => 'form-control']) }}
 
                 {{ Form::label('primary_mobile', 'Primary Mobile :') }}
                 {{ Form::text('primary_mobile', null, array('class' => 'form-control', 'required', 'pattern' => '^[0-9]+$')) }}
@@ -134,8 +136,10 @@
                 <!-- {{ Form::number('dukcapil_status', null, array('class' => 'form-control', 'required', 'min' => '0', 'max' => '1', 'title' => '0 untuk FALSE dan 1 untuk TRUE')) }} -->
                 {{ Form::select('dukcapil_status', array(0 => 'Valid', 1 => 'Not Valid'), 0, ['class' => 'form-control']) }}
 
+                <fieldset disabled>
                 {{ Form::label('longitude', 'Longitude :') }}
-                {{ Form::number('longitude', null, array('class' => 'form-control', 'required')) }}
+                {{ Form::number('longitude', null, array('class' => 'form-control')) }}
+                </fieldset>
 
                 {{ Form::label('cust_status', 'Customer Status :') }}
                 {{ Form::select('cust_status', array('Registered' => 'Registered', 'Active' => 'Active', 'Suspended' => 'Suspended', 'Deactive' => 'Deactive'), 'Own House', ['class' => 'form-control']) }}
